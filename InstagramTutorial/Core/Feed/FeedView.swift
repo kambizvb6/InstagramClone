@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct FeedView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                LazyVStack(spacing: 32){
+                    ForEach(Post.Mock_Post) { post in
+                        FeedCell(post: post)
+                    }
+                }
+                .padding(.top,8)
+            }
+            .navigationTitle("Feed")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement: .topBarTrailing){
+                    Button {
+
+                    } label: {
+                        Image(systemName: "paperplane")
+                            .foregroundStyle(.black)
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading){
+                    Image("Instagram")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 80)
+                }
+            }
+        }
     }
 }
 

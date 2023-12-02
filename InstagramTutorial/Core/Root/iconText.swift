@@ -9,7 +9,17 @@ import SwiftUI
 
 struct iconText: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: "rainbow")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 250, height: 250)
+            .symbolRenderingMode(.multicolor)
+            .symbolEffect(
+                .variableColor
+                    .reversing
+            )
+        
+            .foregroundStyle(.blue)
     }
 }
 
